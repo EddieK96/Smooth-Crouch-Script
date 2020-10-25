@@ -79,7 +79,7 @@ Citizen.CreateThread(function()
 				cor.actionmodeoff = true
 				SetPedUsingActionMode(playerped, false, -1, "DEFAULT_ACTION")
 				if IsPlayerFreeAiming(player) then
-					SetPedMaxMoveBlendRatio(playerped, 1.0)
+					SetPedMaxMoveBlendRatio(playerped, 10.0)
 					SetPedStealthMovement(playerped, true, "DEFAULT_ACTION")
 					stealth.on = true
 					--notify("PLAYER AIMING")
