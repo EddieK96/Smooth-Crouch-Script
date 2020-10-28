@@ -4,16 +4,24 @@ Citizen.CreateThread(function()
 	end
 	
 	cor = {}
+	cor.stanceChangeCooldownRunning = false
+	cor.actionmode = false
+	cor.forcedActionmode = false
 	cor.timer = 0
-	cor.actionmodeoff = false
+	
+	cor.stanceChangeCooldown = function (ms)
+		cor.stanceChangeCooldownRunning = true
+		cor.timer = ms
+	end
+	
 	cor.initialized = true
 	
-	
 	while true do
-		Citizen.Wait(1)
-		playerped = PlayerPedId()
-		if cor.timer > 0 then
-			cor.timer = cor.timer - 1
+		if cor.stanceChangeCooldownRunning then
+			Citizen.Wait(cor.timer)
+			cor.stanceChangeCooldownRunning = false
+		else
+			Citizen.Wait(0)
 		end
 	end
 end)
